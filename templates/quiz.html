@@ -1,13 +1,31 @@
 <!doctype html>
 <html>
 <link rel="stylesheet" media="screen" href = "{{ url_for('static', filename='bootstrap.min.css') }}">
+<link rel="stylesheet" media="screen" href = "{{ url_for('static', filename='style.css') }}">
+
 <meta name="viewport" content = "width=device-width, initial-scale=1.0">
 <head>
 </head>
 
    <body>
    
-      <h1>Hello {{ name }}!</h1>
-      
+      <div class="question">
+      <h1>Question {{question_no}}</h1>
+   
+      <p>{{ question }}</p>
+
+        {% for item in options %}
+          <div class="form-check">
+          <input class="form-check-input" name="radioOption" type="radio" id="radioOption{{loop.index}}" value="{{item}}">
+          <label class="form-check-label" for="radioOption{{loop.index}}">
+            {{ item }}
+          </label>
+          </div>
+        {% endfor %}
+
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+   
    </body>
 </html>
