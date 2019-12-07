@@ -1,0 +1,7 @@
+{
+  "name": "brilliantquiz",
+  "version": "0.0.0",
+  "dependencies": {
+    "bootstrap": "^4.4.1"
+  }
+}
