@@ -2,14 +2,28 @@ import flask
 from flask import Flask
 app = Flask(__name__)
 
+import quiz2020
+
+
 @app.route('/')
 def index():
-   options = ['Foo', 'Bar', 'Baz', 'BarBaz']
+    question_no = 0
 
-   question = "What is the right answer?"
-   question_no = 1
+    info = quiz2020.questions[question_no]
 
-   return flask.render_template('quiz.html', question_no=question_no, question=question, options=options)
+    question = info[0]
+    options = info[1]
+    correct = info[2]
+
+    html = flask.render_template('quiz.html',
+
+            question_no=question_no+1,
+            question=question,
+            options=options
+    )
+
+    return html
+
 
 if __name__ == '__main__':
    app.run(debug = True)
