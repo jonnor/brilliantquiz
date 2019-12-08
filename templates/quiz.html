@@ -9,8 +9,9 @@
 
    <body>
    
-      <div class="question">
-      <h1>Question {{question_no}}</h1>
+    <form class="question" action="/answer/{{question_no}}">
+
+      <h1>Question {{question_no+1}}</h1>
    
       <p>{{ question }}</p>
 
@@ -27,5 +28,7 @@
 
         <button type="submit" class="btn btn-primary">Submit</button>
    
+     </form>
+
    </body>
 </html>
