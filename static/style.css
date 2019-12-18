@@ -1,7 +1,14 @@
+main img {
+    height: 300px;
+    max-width: 300px;
+}
+
 .question p {
-    font: 18px;
+    font-size: 18px;
 }
 
 div.form-check {
     margin: 10px;
 }
+
+

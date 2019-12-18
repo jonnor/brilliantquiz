@@ -1,10 +1,15 @@
+import os.path
+
 import flask
 from flask import Flask
 app = Flask(__name__)
 
 import quiz2020
 
-print('N questions', len(quiz2020.questions), quiz2020.questions[-1])
+images = os.listdir('static/images')
+
+print('N questions', len(quiz2020.questions))
+print('images', len(images), images)
 
 
 @app.route('/question/<int:question_no>')
@@ -20,8 +25,11 @@ def get_question(question_no):
     options = info[1]
     correct = info[2]
 
-    html = flask.render_template('quiz.html',
 
+    image_url = flask.url_for('static', filename=os.path.join('images', images[question_no]))
+
+    html = flask.render_template('quiz.html',
+            image_url=image_url,
             question_no=question_no,
             question=question,
             options=options

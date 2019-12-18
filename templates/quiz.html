@@ -9,10 +9,16 @@
 
    <body>
    
+
+    <main role="main" class="container">
+    <h1>Goldsmith Christmas Quiz 2019</h1>
+
+    <img src="{{image_url}}"></img>
+
+    <h2>Question {{question_no+1}}</h2>
+
     <form class="question" action="/answer/{{question_no}}">
 
-      <h1>Question {{question_no+1}}</h1>
-   
       <p>{{ question }}</p>
 
         {% for item in options %}
@@ -26,9 +32,16 @@
 
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
-   
+        <button type="submit" class="btn btn-primary">Submit answer</button>
+
      </form>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted">Quiz by jewellery designer <a href="https://www.instagram.com/marianna.brilliantova">Marianna Brilliantova</a></span>
+      </div>
+    </footer>
 
    </body>
 </html>
