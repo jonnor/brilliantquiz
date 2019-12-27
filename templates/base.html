@@ -4,6 +4,14 @@
     {% block head %}
     <meta name="viewport" content = "width=device-width, initial-scale=1.0">
 
+    <!-- Facebook Open Graph for FB link previews.
+    https://developers.facebook.com/docs/sharing/webmasters -->
+    <meta property="og:url"           content="https://brilliantquiz.herokuapp.com" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="Goldsmith Quiz 2019" />
+    <meta property="og:description"   content="How much do you know about goldsmith? Take the quiz to find out!" />
+    <meta property="og:image"         content="https://www.your-domain.com/path/image.jpg" />
+
     <link rel="stylesheet" media="screen" href = "{{ url_for('static', filename='bootstrap.min.css') }}">
     <link rel="stylesheet" media="screen" href = "{{ url_for('static', filename='style.css') }}">
     {% endblock %}
@@ -15,6 +23,16 @@
         {% endblock %}
     </main>
     
+    <!-- Load Facebook SDK for JavaScript -->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
 
     <footer class="footer pt-5">
         {% block footer %}
