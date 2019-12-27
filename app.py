@@ -34,7 +34,7 @@ def render_question(question_no,
 
     print(options, checks)
 
-    html = flask.render_template('quiz.html',
+    html = flask.render_template('question.html',
             submit_url=submit_url,
             submit_text=submit_text,
             image_url=image_url,
@@ -90,7 +90,12 @@ def give_answer(question_no):
 
 @app.route('/done')
 def get_done():
-    return "Congrats! Have a nice new year"
+    html = flask.render_template('end.html',
+            score=11,
+            max_score=22,
+    )
+
+    return html
 
 
 @app.route('/')
